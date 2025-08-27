@@ -220,11 +220,9 @@ def get_gemini_answers(model, in_data, out_data, prediction_key, args):
             query = query_conv + '\n' + question_prompt
             # print(query)
             
-            trials = 0
-            while trials < 5:
+            for trials in range(5):
                 try:
-                    trials += 1
-                    # print("Trial %s" % trials)
+                    # print("Trial %s" % (trials + 1))
                     # print("Sending query of %s tokens" % model.count_tokens(query).total_tokens)
                     # print("Trying with answer token budget = %s per question" % PER_QA_TOKEN_BUDGET)
                     answer = run_gemini(model, query)

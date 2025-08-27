@@ -205,11 +205,9 @@ def get_claude_answers(in_data, out_data, prediction_key, args):
             query = query_conv + '\n' + question_prompt
             # print(query)
             
-            trials = 0
-            while trials < 5:
+            for trials in range(5):
                 try:
-                    trials += 1
-                    # print("Trial %s" % trials)
+                    # print("Trial %s" % (trials + 1))
                     # print("Sending query of %s tokens" % len(model.count_tokens(query)))
                     # print("Trying with answer token budget = %s per question" % PER_QA_TOKEN_BUDGET)
                     answer = run_claude(query, PER_QA_TOKEN_BUDGET * args.batch_size, args.model)

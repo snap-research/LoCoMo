@@ -299,11 +299,10 @@ def get_gpt_answers(in_data, out_data, prediction_key, args):
             # query = query_conv + '\n' + QA_PROMPT_BATCH + "\n".join(["QUESTION: %s" % q for q in questions])
             query = query_conv + '\n' + question_prompt
             
-            trials = 0
-            while trials < 3:
+            for trials in range(3):
                 try:
-                    trials += 1
-                    print("Trial %s/3" % trials)
+                    if trials:
+                        print("Trial %s/3" % (trials + 1))
                     # print("Sending query of %s tokens" % len(encoding.encode(query)))
                     # print("Trying with answer token budget = %s per question" % PER_QA_TOKEN_BUDGET)
                     answer = run_chatgpt(query, num_gen=1, num_tokens_request=args.batch_size*PER_QA_TOKEN_BUDGET, 
@@ -315,7 +314,7 @@ def get_gpt_answers(in_data, out_data, prediction_key, args):
                     break
 
                 except Exception as e:
-                    print('Error at trial %s/3' % trials, e)
+                    print('Error at trial %s/3' % (trials + 1), e)
                     raise ValueError
             
             for k, idx in enumerate(include_idxs):
