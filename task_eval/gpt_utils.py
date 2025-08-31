@@ -245,11 +245,11 @@ def get_gpt_answers(in_data, out_data, prediction_key, args):
             elif qa['category'] == 5:
                 question = qa['question'] + " Select the correct answer: (a) {} (b) {}. "
                 if random.random() < 0.5:
-                    question = question.format('Not mentioned in the conversation', qa['answer'])
-                    answer = {'a': 'Not mentioned in the conversation', 'b': qa['answer']}
+                    question = question.format('Not mentioned in the conversation', qa['adversarial_answer'])
+                    answer = {'a': 'Not mentioned in the conversation', 'b': qa['adversarial_answer']}
                 else:
-                    question = question.format(qa['answer'], 'Not mentioned in the conversation')
-                    answer = {'b': 'Not mentioned in the conversation', 'a': qa['answer']}
+                    question = question.format(qa['adversarial_answer'], 'Not mentioned in the conversation')
+                    answer = {'b': 'Not mentioned in the conversation', 'a': qa['adversarial_answer']}
 
                 cat_5_idxs.append(len(questions))
                 questions.append(question)
