@@ -42,7 +42,7 @@ Based on the above conversations, write short answers for each of the following 
 CONV_START_PROMPT = "Below is a conversation between two people: {} and {}. The conversation takes place over multiple days and the date of each conversation is wriiten at the beginning of the conversation.\n\n"
 
 
-def process_ouput(text):
+def process_output(text):
 
     # single_quote_count = text.count("'")
     # double_quote_count = text.count('"')
@@ -217,14 +217,14 @@ def get_claude_answers(in_data, out_data, prediction_key, args):
                     # try:
                     #     answers = json.loads(answer.strip())
                     # except:
-                    answers = process_ouput(answer.strip())
+                    answers = process_output(answer.strip())
                     break
                 except json.decoder.JSONDecodeError:
                     pass
             
             for k, idx in enumerate(include_idxs):
                 try:
-                    answers = process_ouput(answer.strip())
+                    answers = process_output(answer.strip())
                     # answers = json.loads(answer.strip())
                     # data['qa'][idx]['%s_prediction' % args.model] = answers[k]['answer'].strip()
                     if k in cat_5_idxs:

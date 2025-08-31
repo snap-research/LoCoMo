@@ -51,7 +51,7 @@ Use single-quote characters for named entities and double-quote characters for e
 CONV_START_PROMPT = "Below is a conversation between two people: {} and {}. The conversation takes place over multiple days and the date of each conversation is wriiten at the beginning of the conversation.\n\n"
 
 
-def process_ouput(text):
+def process_output(text):
 
     single_quote_count = text.count("'")
     double_quote_count = text.count('"')
@@ -311,7 +311,7 @@ def get_gpt_answers(in_data, out_data, prediction_key, args):
                             use_16k=True if any([k in args.model for k in ['16k', '12k', '8k', '4k']]) else False, 
                             temperature=0, wait_time=2)
                     answer = answer.replace('\\"', "'").replace('json','').replace('`','').strip().replace("\\'", "")
-                    answers = process_ouput(answer.strip())
+                    answers = process_output(answer.strip())
                     break
 
                 except Exception as e:
@@ -320,7 +320,7 @@ def get_gpt_answers(in_data, out_data, prediction_key, args):
             
             for k, idx in enumerate(include_idxs):
                 try:
-                    answers = process_ouput(answer.strip())
+                    answers = process_output(answer.strip())
                     # answers = json.loads(answer.strip())
                     # data['qa'][idx]['%s_prediction' % args.model] = answers[k]['answer'].strip()
                     if k in cat_5_idxs:
