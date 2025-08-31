@@ -331,7 +331,7 @@ def get_gpt_answers(in_data, out_data, prediction_key, args):
                             out_data['qa'][idx][prediction_key] = str(answers[str(k)]).replace('(a)', '').replace('(b)', '').strip()
                         except:
                             out_data['qa'][idx][prediction_key] = ', '.join([str(n) for n in list(answers[str(k)].values())])
-                except:
+                except json.decoder.JSONDecodeError:
                     try:
                         answers = json.loads(answer.strip())
                         if k in cat_5_idxs:
@@ -339,7 +339,7 @@ def get_gpt_answers(in_data, out_data, prediction_key, args):
                             out_data['qa'][idx][prediction_key] = predicted_answer
                         else:
                             out_data['qa'][idx][prediction_key] = answers[k].replace('(a)', '').replace('(b)', '').strip()
-                    except:
+                    except json.decoder.JSONDecodeError:
                         if k in cat_5_idxs:
                             predicted_answer = get_cat_5_answer(answer.strip(), cat_5_answers[cat_5_idxs.index(k)])
                             out_data['qa'][idx][prediction_key] = predicted_answer
