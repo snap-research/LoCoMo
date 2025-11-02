@@ -48,7 +48,7 @@ Use single-quote characters for named entities and double-quote characters for e
 
 # If no information is available to answer the question, write 'No information available'.
 
-CONV_START_PROMPT = "Below is a conversation between two people: {} and {}. The conversation takes place over multiple days and the date of each conversation is wriiten at the beginning of the conversation.\n\n"
+CONV_START_PROMPT = "Below is a conversation between two people: {} and {}. The conversation takes place over multiple days and the date of each conversation is written at the beginning of the conversation.\n\n"
 
 
 def process_ouput(text):
