@@ -19,7 +19,7 @@
       },
       {
         "question": "What fields would Caroline be likely to pursue in her educaton?",
-        "answer": "Psychology, counseling certification",
+        "answer": "mental health, counseling",
         "evidence": [
           "D1:9",
           "D1:11"
@@ -44,7 +44,7 @@
       },
       {
         "question": "When did Melanie run a charity race?",
-        "answer": "The sunday before 25 May 2023",
+        "answer": "The Saturday before 25 May 2023",
         "evidence": [
           "D2:1"
         ],
@@ -198,7 +198,7 @@
       },
       {
         "question": "What books has Melanie read?",
-        "answer": "\"Nothing is Impossible\", \"Charlotte's Web\"",
+        "answer": "Charlotte's Web",
         "evidence": [
           "D7:8",
           "D6:10"
@@ -222,11 +222,12 @@
         ],
         "category": 2
       },
+
       {
-        "question": "When did Melanie read the book \"nothing is impossible\"?",
-        "answer": 2022,
+        "question": "When did Melanie read the book \"Charlotte's Web\"?",
+        "answer":"When she was a kid",
         "evidence": [
-          "D7:8"
+          "D6:10"
         ],
         "category": 2
       },
@@ -317,7 +318,7 @@
         "question": "What did Melanie paint recently?",
         "answer": "sunset",
         "evidence": [
-          "D8:6; D9:17"
+          "D17:12"
         ],
         "category": 1
       },
@@ -375,9 +376,7 @@
         "question": "What kind of art does Caroline make?",
         "answer": "abstract art",
         "evidence": [
-          "D11:12",
-          "D11:8",
-          "D9:14"
+          "D17:13"
         ],
         "category": 1
       },
@@ -484,7 +483,7 @@
       },
       {
         "question": "What symbols are important to Caroline?",
-        "answer": "Rainbow flag, transgender symbol",
+        "answer": "Rainbow flag, transgender symbol, Eagle",
         "evidence": [
           "D14:15",
           "D4:1"
@@ -568,7 +567,7 @@
         "category": 1
       },
       {
-        "question": "What does Melanie do with her family on hikes?",
+        "question": "What does Melanie do with her family while camping?",
         "answer": "Roast marshmallows, tell stories",
         "evidence": [
           "D16:4",
@@ -1129,7 +1128,7 @@
         "category": 4
       },
       {
-        "question": "What setback did Melanie face in October 2023?",
+        "question": "What setback did Melanie face in September 2023?",
         "answer": "She got hurt and had to take a break from pottery.",
         "evidence": [
           "D17:8"
@@ -1146,17 +1145,18 @@
       },
       {
         "question": "What painting did Melanie show to Caroline on October 13, 2023?",
-        "answer": "A painting inspired by sunsets with a pink sky.",
+        "answer": "A painting inspired by sunsets with a pink sky and an aAn abstract painting with blue streaks",
         "evidence": [
-          "D17:12"
+          "D17:12",
+          "D17:14"
         ],
         "category": 4
       },
       {
-        "question": "What kind of painting did Caroline share with Melanie on October 13, 2023?",
-        "answer": "An abstract painting with blue streaks on a wall.",
+        "question": "What kind of drawing did Caroline share with Melanie on October 13, 2023?",
+        "answer": "A drawing of a woman in a dress.",
         "evidence": [
-          "D17:14"
+          "D17:21"
         ],
         "category": 4
       },
@@ -1202,9 +1202,11 @@
       },
       {
         "question": "How did Melanie's son handle the accident?",
-        "answer": "He was scared but reassured by his family",
+        "answer": "He was OK",
         "evidence": [
-          "D18:6",
+          "D18:1",
+          "D18:2",
+          "D18:3",
           "D18:7"
         ],
         "category": 4
@@ -5543,7 +5545,7 @@
       },
       {
         "question": "How long did it take for Jon to open his studio?",
-        "answer": "six months",
+        "answer": "five months",
         "evidence": [
           "D1:2",
           "D15:13"
@@ -5753,7 +5755,7 @@
         "category": 4
       },
       {
-        "question": "What advice does Gina give to Jon about running a successful business?",
+        "question": "What advice does Jon give to Gina about running a successful business?",
         "answer": "build relationships with customers, create a strong brand image, stay positive",
         "evidence": [
           "D7:5"
@@ -9310,7 +9312,7 @@
         "question": "When did Maria meet Jean?",
         "answer": "February 24, 2023",
         "evidence": [
-          "D7:1"
+          "D7:5"
         ],
         "category": 2
       },
@@ -16579,9 +16581,9 @@
         ],
         "category": 2
       },
-      {
+            {
         "question": "What pets wouldn't cause any discomfort to Joanna?",
-        "answer": "Hairless cats or pigs,since they don't have fur, which is one of the main causes of Joanna's allergy.",
+        "answer": "Pets that do not have fur, excluding reptiles",
         "evidence": [
           "D2:23"
         ],
@@ -17122,17 +17124,6 @@
           "D27:1"
         ],
         "category": 2
-      },
-      {
-        "question": "What alternative career might Nate consider after gaming?",
-        "answer": "an animalkeeper at a localzoo and workingwith turtles; as heknows a great dealabout turtles andhow to care for them,and he enjoys it.",
-        "evidence": [
-          "D5:8",
-          "D19:3",
-          "D25:19",
-          "D28:25"
-        ],
-        "category": 3
       },
       {
         "question": "What pets does Nate have?",
@@ -24043,7 +24034,7 @@
       },
       {
         "question": "In which month's game did John achieve a career-high score in points?",
-        "answer": "June 2023",
+        "answer": "July 2023",
         "evidence": [
           "D3:1"
         ],
@@ -24137,7 +24128,7 @@
       },
       {
         "question": "After how many weeks did Tim reconnect with the fellow Harry Potter fan from California?",
-        "answer": "three weeks",
+        "answer": "one month",
         "evidence": [
           "D3:2",
           "D5:1"
@@ -24540,9 +24531,9 @@
       },
       {
         "question": "When did John achieve a career-high assist performance?",
-        "answer": "December 11, 2023",
+        "answer": "December 8, 2023",
         "evidence": [
-          "D23:2"
+          "D23:3"
         ],
         "category": 2
       },
@@ -31788,7 +31779,7 @@
       },
       {
         "question": "When did Audrey make muffins for herself?",
-        "answer": "The week of April 3rd to 9th",
+        "answer": "The week of April 9th to 15th",
         "evidence": [
           "D3:18"
         ],
@@ -31796,7 +31787,7 @@
       },
       {
         "question": "When did Audrey see a hummingbird?",
-        "answer": "first week of May 2023",
+        "answer": "last week of April 2023",
         "evidence": [
           "D4:1"
         ],
@@ -32093,7 +32084,7 @@
       },
       {
         "question": "When did Audrey get into an accident in the park?",
-        "answer": "between October 19 and 24, 2023",
+        "answer": "The week of October 16th to 22nd",
         "evidence": [
           "D25:2"
         ],
@@ -39212,7 +39203,7 @@
       },
       {
         "question": "How many days did James plan to spend on his trip in Canada?",
-        "answer": "19 days",
+        "answer": "9 days",
         "evidence": [
           "D16:9",
           "D16:13"
@@ -54613,7 +54604,7 @@
       },
       {
         "question": "When did Evan's son fall off his bike?",
-        "answer": "Thursday before December 17, 2023.",
+        "answer": "Tuesday before December 17, 2023",
         "evidence": [
           "D20:3"
         ],
@@ -54669,7 +54660,7 @@
       },
       {
         "question": "When did Evan have a drunken night with his friends?",
-        "answer": "January 9, 2023",
+        "answer": "January 9, 2024",
         "evidence": [
           "D24:3"
         ],
@@ -61232,7 +61223,7 @@
         "category": 4
       },
       {
-        "question": "When did Calvin first get interested in cars?",
+        "question": "When did Dave first get interested in cars?",
         "answer": "at an early age",
         "evidence": [
           "D26:6"
