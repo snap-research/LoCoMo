@@ -5,12 +5,13 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import os, json
 from tqdm import tqdm
 import argparse
-from global_methods import set_openai_key, set_anthropic_key, set_gemini_key
+from global_methods import set_openai_key, set_anthropic_key, set_gemini_key, set_minimax_key
 from task_eval.evaluation import eval_question_answering
 from task_eval.evaluation_stats import analyze_aggr_acc
 from task_eval.gpt_utils import get_gpt_answers
 from task_eval.claude_utils import get_claude_answers
 from task_eval.gemini_utils import get_gemini_answers
+from task_eval.minimax_utils import get_minimax_answers
 from task_eval.hf_llm_utils import init_hf_model, get_hf_answers
 
 import numpy as np
@@ -56,7 +57,10 @@ def main():
             model_name = "models/gemini-1.0-pro-latest"
 
         gemini_model = genai.GenerativeModel(model_name)
-    
+
+    elif 'minimax' in args.model:
+        set_minimax_key()
+
     elif any([model_name in args.model for model_name in ['gemma', 'llama', 'mistral']]):
         hf_pipeline, hf_model_name = init_hf_model(args)
 
@@ -90,6 +94,8 @@ def main():
             answers = get_claude_answers(data, out_data, prediction_key, args)
         elif 'gemini' in args.model:
             answers = get_gemini_answers(gemini_model, data, out_data, prediction_key, args)
+        elif 'minimax' in args.model:
+            answers = get_minimax_answers(data, out_data, prediction_key, args)
         elif any([model_name in args.model for model_name in ['gemma', 'llama', 'mistral']]):
             answers = get_hf_answers(data, out_data, args, hf_pipeline, hf_model_name)
         else:
