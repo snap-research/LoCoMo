@@ -4,6 +4,8 @@ import json
 import time
 import sys
 import os
+import re
+import httpx
 
 import google.generativeai as genai
 from anthropic import Anthropic
@@ -12,6 +14,9 @@ from anthropic import Anthropic
 def get_openai_embedding(texts, model="text-embedding-ada-002"):
    texts = [text.replace("\n", " ") for text in texts]
    return np.array([openai.Embedding.create(input = texts, model=model)['data'][i]['embedding'] for i in range(len(texts))])
+
+def set_minimax_key():
+    pass
 
 def set_anthropic_key():
     pass
@@ -77,6 +82,40 @@ def run_claude(query, max_new_tokens, model_name):
     )
     print(message.content)
     return message.content[0].text
+
+
+def run_minimax(query, max_new_tokens, model_name, temperature=0):
+    """Run MiniMax model via OpenAI-compatible API."""
+
+    if model_name == 'minimax-m2.5':
+        api_model_name = "MiniMax-M2.5"
+    elif model_name == 'minimax-m2.5-highspeed':
+        api_model_name = "MiniMax-M2.5-highspeed"
+    elif model_name == 'minimax-m2.7':
+        api_model_name = "MiniMax-M2.7"
+    else:
+        api_model_name = model_name
+
+    url = "https://api.minimax.io/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {os.environ.get('MINIMAX_API_KEY', '')}",
+        "Content-Type": "application/json",
+    }
+    # MiniMax temperature must be in (0.0, 1.0]
+    clamped_temp = max(0.01, min(temperature, 1.0)) if temperature > 0 else 0.01
+    payload = {
+        "model": api_model_name,
+        "messages": [{"role": "user", "content": query}],
+        "max_tokens": max_new_tokens,
+        "temperature": clamped_temp,
+    }
+    response = httpx.post(url, headers=headers, json=payload, timeout=120)
+    response.raise_for_status()
+    data = response.json()
+    text = data["choices"][0]["message"]["content"]
+    # Strip thinking tags if present (M2.5 models may include them)
+    text = re.sub(r'<think>.*?</think>', '', text, flags=re.DOTALL).strip()
+    return text
 
 
 def run_gemini(model, content: str, max_tokens: int = 0):

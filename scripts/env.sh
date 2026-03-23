@@ -24,5 +24,8 @@ export GOOGLE_API_KEY=
 # Anthropic API Key
 export ANTHROPIC_API_KEY=
 
+# MiniMax API Key
+export MINIMAX_API_KEY=
+
 # HuggingFace Token
 export HF_TOKEN=

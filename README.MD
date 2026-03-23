@@ -67,6 +67,11 @@ bash scripts/evaluate_claude.sh
 bash scripts/evaluate_gemini.sh
 ```
 
+* Evaluate MiniMax models (MiniMax-M2.5, MiniMax-M2.5-highspeed with 204K context)
+```
+bash scripts/evaluate_minimax.sh
+```
+
 * Evaluate models available on Huggingface
 ```
 bash scripts/evaluate_hf_llm.sh
