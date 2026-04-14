@@ -113,3 +113,9 @@ Please cite our paper if you use LoCoMo in your works:
   year={2024}
 }
 ```
+
+
+### 🏆 Community Results (2026.04 Update)
+| System | LoCoMo F1 | HaluMem | Architecture | Note |
+| :--- | :---: | :---: | :--- | :--- |
+| **VantaGrid v5.7.3** | **0.500** | **100/100** | **Deterministic Middleware** | Zero-hallucination, O(1) retrieval. |
