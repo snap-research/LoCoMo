@@ -252,13 +252,16 @@ def get_hf_answers(in_data, out_data, args, pipeline, model_name):
             if qa['category'] == 2:
                 questions.append(qa['question'] + ' Use DATE of CONVERSATION to answer with an approximate date.')
             elif qa['category'] == 5:
+                # Adversarial distractor is stored under 'adversarial_answer' in
+                # the released data; fall back to 'answer' for backward compat.
+                adv_answer = qa.get('adversarial_answer', qa.get('answer'))
                 question = qa['question'] + " (a) {} (b) {}. Select the correct answer by writing (a) or (b)."
                 if random.random() < 0.5:
-                    question = question.format('No information available', qa['answer'])
-                    answer = {'a': 'No information available', 'b': qa['answer']}
+                    question = question.format('No information available', adv_answer)
+                    answer = {'a': 'No information available', 'b': adv_answer}
                 else:
-                    question = question.format(qa['answer'], 'No information available')
-                    answer = {'b': 'No information available', 'a': qa['answer']}
+                    question = question.format(adv_answer, 'No information available')
+                    answer = {'b': 'No information available', 'a': adv_answer}
                 cat_5_idxs.append(len(questions))
                 questions.append(question)
                 cat_5_answers.append(answer)
