@@ -196,10 +196,14 @@ def eval_question_answering(qas, eval_key='prediction', metric='f1'):
     answer_lengths = []
     for i, line in enumerate(qas):
         # line = json.loads(line)
+        # Category 5 (adversarial) questions store their ground truth under
+        # 'adversarial_answer' in the released data, not 'answer'. Fall back to
+        # it so scoring does not crash with KeyError on the released benchmark.
+        gold = line.get('answer', line.get('adversarial_answer'))
         if type(line[eval_key]) == list:
-            answer = line['answer']
+            answer = gold
         else:
-            answer = str(line['answer'])
+            answer = str(gold)
         if line['category'] == 3:
             answer = answer.split(';')[0].strip()
         
